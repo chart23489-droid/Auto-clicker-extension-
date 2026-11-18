@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원형 오토클릭커 · 다운로드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9eef4;--ink:#101a33;--mute:#5a6682;--line:#cdd6e3;--paper:#f7f9fc;--blue:#2f4bff;--blue-d:#2238d6}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-weight:700}
+nav .logo{display:flex;align-items:center;gap:10px}
+.dot{width:22px;height:22px;border-radius:50%;border:3px solid var(--blue);position:relative}
+.dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--blue)}
+nav span.v{font-weight:500;color:var(--mute);font-size:14px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:48px 0 72px}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.12;font-weight:900;letter-spacing:-.04em;word-break:keep-all}
+.lead{margin-top:22px;font-size:18px;color:var(--mute);max-width:30em;word-break:keep-all}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:17px 28px;border-radius:999px;border:0;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 10px 24px -10px rgba(47,75,255,.7)}
+.btn:hover{background:var(--blue-d)}.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px}
+.meta{font-size:14px;color:var(--mute)}
+.stage-box{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:14px;box-shadow:0 30px 60px -40px rgba(16,26,51,.45)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:6px 10px 14px;font-size:14px;font-weight:500;color:var(--mute)}
+.bar b{color:var(--ink);font-variant-numeric:tabular-nums}
+#stage{position:relative;height:320px;border-radius:18px;background:
+ linear-gradient(var(--line) 1px,transparent 1px) 0 0/32px 32px,
+ linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/32px 32px,#fbfcfe;overflow:hidden;touch-action:none}
+.c{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:grid;place-items:center;cursor:grab;user-select:none;box-shadow:0 0 0 6px rgba(47,75,255,.18)}
+.c:active{cursor:grabbing}
+.rip{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;border:2px solid var(--blue);pointer-events:none;animation:rip .7s ease-out forwards}
+@keyframes rip{to{transform:scale(2.6);opacity:0}}
+.hint{padding:12px 10px 4px;font-size:13px;color:var(--mute);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.mini{font:inherit;font-size:13px;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:7px 16px;cursor:pointer}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.03em;font-weight:900;line-height:1.25;margin-bottom:36px;word-break:keep-all}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.feat h3{font-size:19px;margin-bottom:8px}
+.feat p{color:var(--mute);font-size:15px;word-break:keep-all}
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:0;max-width:720px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:16px;padding:0 0 30px;position:relative}
+.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:17px;top:36px;bottom:0;width:2px;background:var(--line)}
+.steps strong{display:block;font-size:18px}
+.steps p{color:var(--mute);font-size:15px;word-break:keep-all}
+.copy{display:inline-flex;align-items:center;gap:10px;margin-top:8px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px 8px 8px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}
+.copy button{font:inherit;font-family:"Noto Sans KR",sans-serif;font-size:13px;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:8px;padding:5px 12px;cursor:pointer}
+kbd{font-family:inherit;font-weight:700;background:var(--paper);border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;padding:1px 8px;font-size:14px}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:24px}.feat{grid-template-columns:1fr;gap:26px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="logo"><i class="dot"></i>원형 오토클릭커</div><span class="v">v1.0 · Chrome</span></nav>
+
+<header class="hero">
+  <div>
+    <h1>원을 놓으면,<br>클릭은 알아서.</h1>
+    <p class="lead">화면 위에 원을 끌어다 놓기만 하세요. 정한 순서와 간격대로 원 위치를 자동으로 클릭합니다.</p>
+    <div class="cta">
+      <a class="btn" id="dl" download="autoclicker-extension.zip" href="data:application/zip;base64,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">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg>
+        확장프로그램 다운로드
+      </a>
+      <span class="meta">ZIP · 약 4KB · 무료</span>
+    </div>
+  </div>
+
+  <div class="stage-box" aria-label="체험 영역">
+    <div class="bar"><span>미리 체험해 보기</span><span>클릭 <b id="cnt">0</b>회</span></div>
+    <div id="stage">
+      <div class="c" id="c1" style="left:28%;top:36%">1</div>
+      <div class="c" id="c2" style="left:68%;top:64%">2</div>
+    </div>
+    <div class="hint"><span>원을 드래그해 위치를 바꿔 보세요</span><button class="mini" id="tog">시작</button></div>
+  </div>
+</header>
+
+<section>
+  <h2>필요한 것만 담았습니다</h2>
+  <div class="feat">
+    <div><h3>드래그로 위치 지정</h3><p>번호가 붙은 원을 원하는 곳에 놓으면 그 자리가 클릭 지점이 됩니다. 원은 여러 개 추가할 수 있습니다.</p></div>
+    <div><h3>간격과 무작위 편차</h3><p>클릭 간격을 ms 단위로 정하고, 무작위 편차를 더해 사람이 누르는 듯한 리듬을 만들 수 있습니다.</p></div>
+    <div><h3>키보드로 바로 제어</h3><p><kbd>F8</kbd>로 시작하고 정지하고, <kbd>Esc</kbd>로 즉시 멈춥니다.</p></div>
+  </div>
+</section>
+
+<section id="install">
+  <h2>설치는 1분이면 끝나요</h2>
+  <ol class="steps">
+    <li><div><strong>ZIP 파일 압축 풀기</strong><p>다운로드한 파일을 풀면 autoclicker 폴더가 생깁니다.</p></div></li>
+    <li><div><strong>확장 프로그램 페이지 열기</strong><p>크롬 주소창에 아래 주소를 붙여넣고, 오른쪽 위의 개발자 모드를 켜세요.</p>
+      <span class="copy"><span id="url">chrome://extensions</span><button id="cp">복사</button></span></div></li>
+    <li><div><strong>압축해제된 확장 프로그램 로드</strong><p>‘압축해제된 확장 프로그램을 로드합니다’를 누르고 autoclicker 폴더를 선택하세요.</p></div></li>
+    <li><div><strong>아이콘 클릭해서 사용</strong><p>클릭을 넣을 페이지에서 툴바의 확장 프로그램 아이콘을 누르면 패널이 열립니다.</p></div></li>
+  </ol>
+</section>
+
+<footer><span>원형 오토클릭커 v1.0</span><span>사용 중인 사이트의 이용 약관을 확인하고 책임 있게 사용하세요.</span></footer>
+</div>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'),cnt=document.getElementById('cnt'),tog=document.getElementById('tog'),n=0,t=null;
+  function drag(el){
+    el.addEventListener('pointerdown',function(e){
+      el.setPointerCapture(e.pointerId);
+      function mv(ev){
+        var r=stage.getBoundingClientRect();
+        el.style.left=Math.min(r.width-26,Math.max(26,ev.clientX-r.left))+'px';
+        el.style.top=Math.min(r.height-26,Math.max(26,ev.clientY-r.top))+'px';
+      }
+      function up(){el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up)}
+      el.addEventListener('pointermove',mv);el.addEventListener('pointerup',up);
+    });
+  }
+  function fire(){
+    stage.querySelectorAll('.c').forEach(function(c,i){
+      setTimeout(function(){
+        var r=document.createElement('i');r.className='rip';r.style.left=c.style.left;r.style.top=c.style.top;
+        stage.appendChild(r);setTimeout(function(){r.remove()},700);
+        cnt.textContent=++n;
+      },i*220);
+    });
+  }
+  stage.querySelectorAll('.c').forEach(drag);
+  tog.addEventListener('click',function(){
+    if(t){clearInterval(t);t=null;tog.textContent='시작';}
+    else{fire();t=setInterval(fire,900);tog.textContent='정지';}
+  });
+  document.getElementById('cp').addEventListener('click',function(){
+    var b=this,txt=document.getElementById('url').textContent;
+    function ok(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)}
+    if(navigator.clipboard){navigator.clipboard.writeText(txt).then(ok,ok)}else ok();
+  });
+})();
+</script>
+</body>
+</html>
